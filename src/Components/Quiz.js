@@ -178,9 +178,11 @@ export default function Quiz() {
     <div className="questions">
       {makeElements}
       {sortedData && sortedData.length > 0 && (
-        <button className="check-btn" onClick={toggleResults}>
-          Check answers
-        </button>
+        <div className="flex">
+          <button className="check-btn" onClick={toggleResults}>
+            Check answers
+          </button>
+        </div>
       )}
       {sortedData && sortedData.length === 0 && (
         <div className="homescreen">

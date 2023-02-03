@@ -59,7 +59,7 @@ body {
 
 .allAnswers {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 1em;
 }
 
@@ -80,8 +80,7 @@ body {
 .questions {
   align-items: center;
   width: 80%;
-  margin-left: 10%;
-  margin-top: 5%;
+  margin: 10% 10%;
 }
 
 .answer {
@@ -119,7 +118,6 @@ body {
 }
 .flex {
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 .question {
@@ -154,7 +152,7 @@ hr {
     color: white;
     padding: 1em 4em;
     border: none;
-    margin: 1em 2em 3em 1em;
+    margin: 1em 0em 3em 0em;
     flex-shrink: 0;
   }
 
