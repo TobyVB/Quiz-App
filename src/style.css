@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f7fb;
+  font-family: "Karla", sans-serif;
+}
+
+.blobL {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 28%;
+  z-index: -1;
+}
+.blobR {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 28%;
+  z-index: -1;
+}
+
+.homescreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20%;
+}
+
+.start-btn {
+  font-size: 1.15rem;
+  background: #4d5b9e;
+  border-radius: 15px;
+  color: white;
+  padding: 1em 4em;
+  border: none;
+}
+
+.check-btn {
+  font-size: 1.15rem;
+  background: #4d5b9e;
+  border-radius: 15px;
+  color: white;
+  padding: 1em 4em;
+  border: none;
+  flex-shrink: 0;
+}
+.description {
+  font-size: 1.25rem;
+  margin-bottom: 3em;
+}
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+.allAnswers {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.correctAnswer {
+  color: #293264;
+  background: #94d7a2;
+}
+
+.selectedWrong {
+  background: #f8bcbc;
+}
+
+.wrongAnswer {
+  background-color: teal;
+  color: white;
+}
+
+.questions {
+  align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.answer {
+  text-align: center;
+  border: 0.8px solid #4d5b9e;
+  border-radius: 12px;
+  padding: 0.3em 0.8em;
+}
+.result-answer {
+  color: #293264;
+  opacity: 0.5;
+  text-align: center;
+  border: 0.8px solid #4d5b9e;
+  border-radius: 12px;
+  padding: 0.3em 0.8em;
+  min-width: 65px;
+}
+.result-answer-right {
+  color: #293264;
+  text-align: center;
+  border: 0.8px solid #4d5b9e;
+  border-radius: 12px;
+  padding: 0.3em 0.8em;
+  min-width: 65px;
+}
+
+.selected {
+  background: #d6dbf5;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.question {
+  font-weight: 600;
+}
+
+hr {
+  color: #293264;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 500px) {
+  .allAnswers {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .answer {
+    text-align: center;
+    border: 0.8px solid #4d5b9e;
+    border-radius: 12px;
+    padding: 0.3em 0.8em;
+    min-width: 65px;
+    margin-bottom: 0;
+  }
+
+  .check-btn {
+    font-size: 1.15rem;
+    background: #4d5b9e;
+    border-radius: 15px;
+    color: white;
+    padding: 1em 4em;
+    border: none;
+    margin: 1em 2em 3em 1em;
+    flex-shrink: 0;
+  }
+
+  .score {
+    font-size: 1rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
