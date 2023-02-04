@@ -80,7 +80,7 @@ body {
 .questions {
   align-items: center;
   width: 80%;
-  margin: 10% 10%;
+  margin: 5% 10%;
 }
 
 .answer {
@@ -112,6 +112,8 @@ body {
 }
 
 .score {
+  text-align: center;
+  margin: 0.5em 0 0.5em 0;
   font-size: 2rem;
   font-weight: bold;
   flex-shrink: 0;

@@ -6,7 +6,6 @@ export default function Quiz() {
   const [sortedData, setSortedData] = React.useState([]);
   const [results, setResults] = React.useState(false);
   const [toggleReset, setToggleReset] = React.useState(false);
-
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&encode=base64")
       .then((res) => res.json())
@@ -29,40 +28,46 @@ export default function Quiz() {
   }
 
   React.useEffect(() => {
-    const tempArray = [];
-    APIData.map((item) => {
-      const tempAnswers = [];
-      item.incorrect_answers.map((wrongAnswer) => {
-        tempAnswers.push({
-          answer: b64Decode(wrongAnswer),
-          selected: false,
-          correct: false,
-          code: wrongAnswer,
+    fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&encode=base64")
+      .then((res) => res.json())
+      .then((data) => setApiData(data.results))
+      .then(() => {
+        setResults(false);
+        const tempArray = [];
+        APIData.map((item) => {
+          const tempAnswers = [];
+          item.incorrect_answers.map((wrongAnswer) => {
+            tempAnswers.push({
+              answer: b64Decode(wrongAnswer),
+              selected: false,
+              correct: false,
+              code: wrongAnswer,
+            });
+          });
+          const ran1 = Math.floor(Math.random() * tempAnswers.length);
+          const ran2 = Math.random();
+          tempAnswers.splice(ran2 < 0.5 ? ran1 : ran1 + 1, 0, {
+            answer: b64Decode(item.correct_answer),
+            selected: false,
+            correct: true,
+            code: item.correct_answer,
+          });
+          tempArray.push({
+            ...item,
+            type: b64Decode(item.type),
+            difficulty: b64Decode(item.difficulty),
+            category: b64Decode(item.category),
+            question: b64Decode(item.question),
+            correct_answer: b64Decode(item.correct_answer),
+            incorrect_answers: item.incorrect_answers.map((incorrect) =>
+              b64Decode(incorrect)
+            ),
+            answers: tempAnswers,
+            selectedAnswer: false,
+          });
         });
+        setSortedData(tempArray);
       });
-      const ran1 = Math.floor(Math.random() * tempAnswers.length);
-      const ran2 = Math.random();
-      tempAnswers.splice(ran2 < 0.5 ? ran1 : ran1 + 1, 0, {
-        answer: b64Decode(item.correct_answer),
-        selected: false,
-        correct: true,
-        code: item.correct_answer,
-      });
-      tempArray.push({
-        ...item,
-        type: b64Decode(item.type),
-        difficulty: b64Decode(item.difficulty),
-        category: b64Decode(item.category),
-        question: b64Decode(item.question),
-        correct_answer: b64Decode(item.correct_answer),
-        incorrect_answers: item.incorrect_answers.map((incorrect) =>
-          b64Decode(incorrect)
-        ),
-        answers: tempAnswers,
-        selectedAnswer: false,
-      });
-    });
-    setSortedData(tempArray);
   }, [toggleReset]);
 
   function toggleSelect(bean, selected) {
@@ -159,10 +164,7 @@ export default function Quiz() {
   }
 
   function reset() {
-    setResults(false);
-    setToggleReset((prevToggleReset) => {
-      return !prevToggleReset;
-    });
+    setToggleReset((prev) => !prev);
   }
 
   let num = 0;
@@ -179,6 +181,9 @@ export default function Quiz() {
       {makeElements}
       {sortedData && sortedData.length > 0 && (
         <div className="flex">
+          <p style={{ color: "rgba(0,0,0,0)" }} className="score">
+            invisible text
+          </p>
           <button className="check-btn" onClick={toggleResults}>
             Check answers
           </button>
