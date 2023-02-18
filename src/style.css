@@ -27,7 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20%;
 }
 
 .start-btn {
@@ -169,4 +168,12 @@ hr {
     align-items: center;
     flex-direction: column;
   }
+}
+select {
+  padding: 0.5em;
+  -webkit-appearance: menulist-button;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1em;
 }

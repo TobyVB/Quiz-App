@@ -1,13 +1,18 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
-export default function Quiz() {
-  const [APIData, setApiData] = React.useState([]);
-  const [sortedData, setSortedData] = React.useState([]);
-  const [results, setResults] = React.useState(false);
-  const [toggleReset, setToggleReset] = React.useState(false);
-  React.useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&encode=base64")
+export default function Quiz(props) {
+  const [APIData, setApiData] = useState([]);
+  const [sortedData, setSortedData] = useState([]);
+  const [results, setResults] = useState(false);
+  const [toggleReset, setToggleReset] = useState(false);
+  useEffect(() => {
+    console.log(
+      `https://opentdb.com/api.php?amount=${props.numQuestions}${props.category}${props.difLev}${props.chosenType}&encode=base64`
+    );
+    fetch(
+      `https://opentdb.com/api.php?amount=${props.numQuestions}${props.category}${props.difLev}${props.chosenType}&encode=base64`
+    )
       .then((res) => res.json())
       .then((data) => setApiData(data.results))
       .then(() => {
@@ -27,8 +32,10 @@ export default function Quiz() {
     );
   }
 
-  React.useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&encode=base64")
+  useEffect(() => {
+    fetch(
+      `https://opentdb.com/api.php?amount=${props.numQuestions}${props.category}${props.difLev}${props.chosenType}&encode=base64`
+    )
       .then((res) => res.json())
       .then((data) => setApiData(data.results))
       .then(() => {
