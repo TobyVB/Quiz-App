@@ -43,7 +43,7 @@ body {
   background: #4d5b9e;
   border-radius: 15px;
   color: white;
-  padding: 1em 4em;
+  padding: 0.5em 1em;
   border: none;
   flex-shrink: 0;
 }
@@ -58,7 +58,6 @@ body {
 
 .allAnswers {
   display: flex;
-  /* justify-content: space-between; */
   gap: 1em;
 }
 
@@ -129,8 +128,17 @@ hr {
   color: #293264;
   opacity: 0.5;
 }
+.homepage-content {
+  display: "flex";
+  flex-direction: "column-reverse";
+  align-items: "center";
+  gap: "2em";
+}
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
+  .homepage-content {
+    padding: 5em;
+  }
   .allAnswers {
     display: flex;
     gap: 0;
@@ -151,9 +159,9 @@ hr {
     background: #4d5b9e;
     border-radius: 15px;
     color: white;
-    padding: 1em 4em;
+    padding: 0.5em 1em;
     border: none;
-    margin: 1em 0em 3em 0em;
+    margin: 1em 0em 1em 0em;
     flex-shrink: 0;
   }
 
@@ -176,4 +184,13 @@ select {
   border: none;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   margin-bottom: 1em;
+  font-size: 1rem;
+}
+@media screen and (min-width: 700px) {
+  .homepage-content {
+    padding: 10em;
+  }
+  .check-btn {
+    margin-bottom: 1rem;
+  }
 }

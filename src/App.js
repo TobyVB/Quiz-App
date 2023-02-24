@@ -1,29 +1,4 @@
-// import React from "react";
-// import logo from "./logo.svg";
-// import "./App.css";
-
-// function App() {
-//   const [data, setData] = useState(null);
-
-// useEffect(() => {
-//   fetch("/api")
-//     .then((res) => res.json())
-//     .then((data) => setData(data.message));
-// }, []);
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>{!data ? "Loading..." : data}</p>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Homescreen from "./Components/Homescreen.js";
 import Quiz from "./Components/Quiz.js";
 
@@ -33,8 +8,6 @@ export default function App() {
   function start() {
     setHomescreen(false);
   }
-
-  // Can have up to 50 questions
 
   const categories = [
     {
@@ -168,12 +141,12 @@ export default function App() {
 
       {homescreen && (
         <div
+          className="homepage-content"
           style={{
             display: "flex",
             flexDirection: "column-reverse",
             alignItems: "center",
-            gap: "2em",
-            padding: "15em",
+            gap: "1em",
           }}
         >
           <Homescreen start={start} />
@@ -190,8 +163,8 @@ export default function App() {
               </span>
             </label>
             <select onChange={(e) => setNumQuestions(e.target.value)}>
-              {Array.apply(null, { length: 50 }).map((e, i) => (
-                <option value={i + 1}>{i + 1}</option>
+              {Array.apply(null, { length: 46 }).map((e, i) => (
+                <option value={i + 5}>{i + 5}</option>
               ))}
             </select>
             <label>Type</label>
@@ -217,6 +190,7 @@ export default function App() {
       )}
       {!homescreen && (
         <Quiz
+          setHomescreen={setHomescreen}
           category={category}
           difLev={difLev}
           chosenType={chosenType}

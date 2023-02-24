@@ -6,6 +6,7 @@ export default function Quiz(props) {
   const [sortedData, setSortedData] = useState([]);
   const [results, setResults] = useState(false);
   const [toggleReset, setToggleReset] = useState(false);
+
   useEffect(() => {
     console.log(
       `https://opentdb.com/api.php?amount=${props.numQuestions}${props.category}${props.difLev}${props.chosenType}&encode=base64`
@@ -168,10 +169,12 @@ export default function Quiz(props) {
 
   function toggleResults() {
     setResults(true);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
   function reset() {
     setToggleReset((prev) => !prev);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
   let num = 0;
@@ -185,6 +188,7 @@ export default function Quiz(props) {
 
   return !results ? (
     <div className="questions">
+      <h1 style={{ textAlign: "center", marginBottom: "2em" }}>Trivia!</h1>
       {makeElements}
       {sortedData && sortedData.length > 0 && (
         <div className="flex">
@@ -193,6 +197,20 @@ export default function Quiz(props) {
           </p>
           <button className="check-btn" onClick={toggleResults}>
             Check answers
+          </button>
+          <button
+            style={{
+              fontSize: "1.25rem",
+              background: "none",
+              fontWeight: "600",
+              border: "none",
+              padding: "0.5em 1em",
+              borderRadius: "12px",
+              color: "rgba(0,0,0,.7)",
+            }}
+            onClick={() => props.setHomescreen(true)}
+          >
+            return home
           </button>
         </div>
       )}
@@ -204,6 +222,7 @@ export default function Quiz(props) {
     </div>
   ) : (
     <div className="questions">
+      <h1 style={{ textAlign: "center", marginBottom: "2em" }}>Trivia!</h1>
       {showResults}
       <div className="flex">
         <p className="score">
@@ -211,6 +230,20 @@ export default function Quiz(props) {
         </p>
         <button className="check-btn" onClick={reset}>
           Play again
+        </button>
+        <button
+          style={{
+            fontSize: "1.25rem",
+            background: "none",
+            fontWeight: "600",
+            border: "none",
+            padding: "0.5em 1em",
+            borderRadius: "12px",
+            color: "rgba(0,0,0,.7)",
+          }}
+          onClick={() => props.setHomescreen(true)}
+        >
+          return home
         </button>
       </div>
     </div>
