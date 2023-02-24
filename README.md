@@ -14,11 +14,14 @@ Users can filter questions by count, type, category, and difficulty. Users are t
   <li>Open Trivia API</li>
   </ul>
 
-  <hr margin-bottom="30px" />
+  <hr margin-bottom="40px" />
   
   <div display="flex">
     <img height="400px" src="https://user-images.githubusercontent.com/98196156/221082488-c0eec32b-a125-489c-9857-64e5014e9118.jpg" />
     <img height="400px" src="https://user-images.githubusercontent.com/98196156/221082482-77f342c4-e78a-4743-9750-5b7358f4ac01.jpg" />
     <img height="400px" src="https://user-images.githubusercontent.com/98196156/221082467-f0ebebe3-6791-4f51-b1e2-b1418bd19e35.jpg" />
   </div>
+
+  <hr margin-bottom="40px" />
+
   <img src="https://user-images.githubusercontent.com/98196156/221083298-ce0371d5-b675-42e0-a268-bdfea4494872.gif" />
