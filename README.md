@@ -13,6 +13,8 @@ Users can filter questions by count, type, category, and difficulty. Users are t
   <li>Firebase</li>
   <li>Open Trivia API</li>
   </ul>
+
+  <hr margin-bottom="30px" />
   
   <div display="flex">
     <img height="400px" src="https://user-images.githubusercontent.com/98196156/221082488-c0eec32b-a125-489c-9857-64e5014e9118.jpg" />
